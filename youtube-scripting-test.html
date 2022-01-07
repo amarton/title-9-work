@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+
+    <style>
+      /* These two styles make the you tube video responsive */
+      .embed-container { 
+        position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
+      } 
+      .embed-container iframe, .embed-container object, .embed-container embed { 
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+      }
+
+      .change-video {
+        width:100px;
+        padding:10px;
+        border: 1px solid red;
+        cursor: pointer;
+      }
+
+     .select {
+      cursor: pointer;
+      float:left;
+      padding-left:10px;
+     }
+    </style>
+
+</head>
+
+<body> 
+
+  <!-- Responsive video container -->
+    <div class='embed-container'><iframe id="ytVideo" src='https://www.youtube.com/embed/eDkpVwrhYfo' frameborder='0' allowfullscreen></iframe></div>
+  <!-- End -->
+
+  <br>
+  <strong>Select a category:</strong><br>
+  <div id="all-button" class="select">All |</div>
+  <div id="cat1-button" class="select">Category 1 |</div>
+  <div id="cat2-button" class="select">Category 2 |</div>  
+  <div id="cat3-button" class="select">Category 3</div> 
+  
+  <br><br>
+  
+  <strong>Select a video:</strong>
+ 
+  <div onclick="changeVideo('https://www.youtube.com/embed/eDkpVwrhYfo')" class="change-video all cat1">Video 1</div>
+  <br>
+
+    <div onclick="changeVideo('https://www.youtube.com/embed/QMcyoydUJYk')" class="change-video all cat1">Video 2</div>
+    <br>
+
+    <div onclick="changeVideo('https://www.youtube.com/embed/POi7ei3pLPo')" class="change-video all cat2">Video 3</div>
+    <br>
+
+    <div onclick="changeVideo('https://www.youtube.com/embed/pd05W5sMuws')" class="change-video all cat3">Video 4</div>
+
+
+    <script type="text/javascript">
+    
+    // This function will change the source of the YouTube iframe source to whatever is passed via newVideo
+    function changeVideo(newVideo) { 
+      document.getElementById('ytVideo').src = newVideo;
+    };
+
+  // There is a function below for each category button. It hides all of the videos and shows only those in the sected category
+  $("#all-button").click(function(){
+  $(".all").show();
+  });
+
+  $("#cat1-button").click(function(){
+  $(".all").hide();
+  $(".cat1").show();
+  });
+
+  $("#cat2-button").click(function(){
+  $(".all").hide();
+  $(".cat2").show();
+  });
+
+  $("#cat3-button").click(function(){
+  $(".all").hide();
+  $(".cat3").show();
+  });
+
+    </script>
+
+
+
+</body>
+</html>
