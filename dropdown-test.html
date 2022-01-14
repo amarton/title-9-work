@@ -1,0 +1,24 @@
+<html>
+<body>
+<select id="my-dropdown">
+    <option value="">A list of internal and external links</option>
+    <option value="http://www.someurl.com">External Link</option>
+    <option value="/internal/page">Internal links</option>
+</select>
+
+
+<script>
+    document.getElementById("my-dropdown").onchange = function() {
+
+        var externalLinkCheck = this.options[this.selectedIndex].value;
+
+        if (this.selectedIndex!==0 && externalLinkCheck.substring(0,4) == "http") {
+            window.open(this.value, '_blank');
+        } else {
+            window.location.href = this.value;
+        }        
+    };
+</script>
+
+</body>
+</html>
